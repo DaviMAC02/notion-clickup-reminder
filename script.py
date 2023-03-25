@@ -33,7 +33,7 @@ while True:
     utc_now = datetime.utcnow()
 
     # Convert the UTC datetime to UTC-3 timezone
-    utc_3 = pytz.timezone('America/Argentina/Buenos_Aires')
+    utc_3 = pytz.timezone('America/Sao_Paulo')
     now = utc_3.localize(utc_now)
     print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...')
 
