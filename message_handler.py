@@ -6,7 +6,7 @@ from telegram.ext import Updater, MessageHandler, Filters
 bot = telegram.Bot(token='6297703034:AAHpAtl7LxrNZyBWHREoxVbTNkYyRdkXT7A')
 
 # Set the chat ID that the bot will listen to
-chat_id = '-940741368'
+chat_id = '-846111004'
 
 affirmative_responses = ['yes', 'y', 'sim', 's', 'ok', 'okay', 'certo', 'claro', 'affirmative', 'affirmativo', 'positivo']
 

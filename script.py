@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 bot = telegram.Bot(token='6297703034:AAHpAtl7LxrNZyBWHREoxVbTNkYyRdkXT7A')
 
 # Set the chat ID that the bot will send messages to
-chat_id = '-940741368'
+chat_id = '-846111004'
 
 # Define user name
 user_name = "Davi"
