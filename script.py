@@ -29,7 +29,7 @@ reminder_interval = 5 # 1 hour
 
 while True:
     # Get datetime now and subtract 11 hours to correct machine timezone
-    now = datetime.now() - timedelta(hours=11)
+    now = datetime.now() - timedelta(hours=10)
     print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...') 
     # Check if it is a weekday and within the reminder period
     if now.strftime('%A') in days_of_week and start_time <= now.time() <= end_time:
@@ -37,6 +37,7 @@ while True:
         # Retrieves the user_responded flag from the JSON file
         with open('user_responded.json', 'r') as f:
             user_responded = (json.load(f))['user_responded']
+            print(f"User responded: {user_responded}")
                 
         # If the user has not responded, send reminders every hour
         if user_responded == False:
