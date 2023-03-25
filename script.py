@@ -1,7 +1,7 @@
 import json
 import telegram
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 # Initialize the Telegram bot using your bot token
@@ -28,8 +28,9 @@ reminder_interval = 5 # 1 hour
 
 
 while True:
-    print(f'Today is {datetime.now().strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...')
-    now = datetime.now()
+    # Get datetime now and subtract 11 hours to correct machine timezone
+    now = datetime.now() - timedelta(hours=11)
+    print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...') 
     # Check if it is a weekday and within the reminder period
     if now.strftime('%A') in days_of_week and start_time <= now.time() <= end_time:
         print("Reminder period started")
