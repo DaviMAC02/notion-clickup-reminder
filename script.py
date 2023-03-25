@@ -1,4 +1,5 @@
 import json
+import pytz
 import telegram
 import time
 from datetime import datetime
@@ -29,7 +30,12 @@ reminder_interval = 5 # 1 hour
 
 while True:
     print(f'Today is {datetime.now().strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...')
-    now = datetime.now()
+    # Get the current datetime in UTC timezone
+    utc_now = datetime.datetime.utcnow()
+
+    # Convert the UTC datetime to UTC-3 timezone
+    utc_3 = pytz.timezone('UTC-3')
+    now = utc_3.localize(utc_now)
     # Check if it is a weekday and within the reminder period
     if now.strftime('%A') in days_of_week and start_time <= now.time() <= end_time:
         print("Reminder period started")
