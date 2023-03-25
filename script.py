@@ -37,11 +37,10 @@ while True:
         # Retrieves the user_responded flag from the JSON file
         with open('user_responded.json', 'r') as f:
             user_responded = (json.load(f))['user_responded']
-            print(f"User responded: {user_responded}")
                 
         # If the user has not responded, send reminders every hour
         if user_responded == False:
-            while start_time <= datetime.now().time() <= end_time and user_responded == False:
+            while start_time <= now().time() <= end_time and user_responded == False:
                 bot.send_message(chat_id=chat_id, text=message)
                 now = datetime.now()
                 if now.time() >= end_time:
