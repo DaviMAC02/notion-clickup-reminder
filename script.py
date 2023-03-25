@@ -29,12 +29,11 @@ reminder_interval = 5 # 1 hour
 
 
 while True:
-    # Get the current datetime in UTC timezone
-    utc_now = datetime.utcnow()
+    # Get the Sao Paulo timezone
+    saopaulo_tz = pytz.timezone('America/Sao_Paulo')
 
-    # Convert the UTC datetime to UTC-3 timezone
-    utc_3 = pytz.timezone('America/Sao_Paulo')
-    now = utc_3.localize(utc_now)
+    # Get the current datetime in the Sao Paulo timezone
+    now = datetime.now(saopaulo_tz)
     print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...')
 
     # Check if it is a weekday and within the reminder period
