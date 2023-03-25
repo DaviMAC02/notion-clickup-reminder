@@ -21,10 +21,10 @@ start_time = datetime.strptime('17:00', '%H:%M').time()
 end_time = datetime.strptime('20:00', '%H:%M').time()
 
 # Define the days of the week on which to send the reminder
-days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 # Define the interval between reminders in seconds
-reminder_interval = 3600 # 1 hour
+reminder_interval = 5 # 1 hour
 
 
 while True:
