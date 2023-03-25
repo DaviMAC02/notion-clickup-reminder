@@ -1,5 +1,4 @@
 import json
-import pytz
 import telegram
 import time
 from datetime import datetime
@@ -29,13 +28,8 @@ reminder_interval = 5 # 1 hour
 
 
 while True:
-    # Get the Sao Paulo timezone
-    saopaulo_tz = pytz.timezone('America/Sao_Paulo')
-
-    # Get the current datetime in the Sao Paulo timezone
-    now = datetime.now(saopaulo_tz)
-    print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...')
-
+    print(f'Today is {datetime.now().strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...')
+    now = datetime.now()
     # Check if it is a weekday and within the reminder period
     if now.strftime('%A') in days_of_week and start_time <= now.time() <= end_time:
         print("Reminder period started")
