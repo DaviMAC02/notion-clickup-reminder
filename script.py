@@ -1,4 +1,5 @@
 import json
+import pytz
 import telegram
 import time
 from datetime import datetime, timedelta
@@ -29,7 +30,7 @@ reminder_interval = 5 # 1 hour
 
 while True:
     # Get datetime now and subtract 11 hours to correct machine timezone
-    now = datetime.now() - timedelta(hours=13)
+    now = datetime.now(pytz.utc)
     print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...') 
     # Check if it is a weekday and within the reminder period
     if now.strftime('%A') in days_of_week and start_time <= now.time() <= end_time:
@@ -40,7 +41,7 @@ while True:
                 
         # If the user has not responded, send reminders every hour
         if user_responded == False:
-            while start_time <= now().time() <= end_time and user_responded == False:
+            while start_time <= datetime.now(pytz.utc).time() <= end_time and user_responded == False:
                 bot.send_message(chat_id=chat_id, text=message)
                 now = datetime.now()
                 if now.time() >= end_time:
