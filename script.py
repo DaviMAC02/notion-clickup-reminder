@@ -18,8 +18,8 @@ user_name = "Davi"
 message = f"Olá {user_name}, passando para te lembrar de preencher o seu Notion!" 
 
 # Define the start and end times of the reminder period
-start_time = datetime.strptime('17:00', '%H:%M').time()
-end_time = datetime.strptime('20:00', '%H:%M').time()
+start_time = datetime.strptime('22:00', '%H:%M').time()
+end_time = datetime.strptime('23:00', '%H:%M').time()
 
 # Define the days of the week on which to send the reminder
 days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -30,8 +30,9 @@ reminder_interval = 5 # 1 hour
 
 while True:
     # Get datetime now and subtract 11 hours to correct machine timezone
+    # get pytz timezone Sao Paulo
     now = datetime.now(pytz.utc)
-    print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...') 
+    print(f'Today is {now.strftime("%A")} and the time is {now.strftime("%H:%M")}, checking if it is time to send a reminder...') 
     # Check if it is a weekday and within the reminder period
     if now.strftime('%A') in days_of_week and start_time <= now.time() <= end_time:
         print("Reminder period started")
