@@ -34,7 +34,7 @@ while True:
 
     # Convert the UTC datetime to UTC-3 timezone
     utc_3 = pytz.timezone('America/Argentina/Buenos_Aires')
-    utc_3_now = utc_3.localize(utc_now)
+    now = utc_3.localize(utc_now)
     print(f'Today is {now.strftime("%A")} and the time is {datetime.now().strftime("%H:%M")}, checking if it is time to send a reminder...')
 
     # Check if it is a weekday and within the reminder period
