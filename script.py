@@ -57,8 +57,8 @@ class NotionReminder:
 async def main():
     bot = TelegramBot(token='6297703034:AAHpAtl7LxrNZyBWHREoxVbTNkYyRdkXT7A', chat_id='-846111004')
     reminder = NotionReminder(user_name='Davi',
-                              start_time=dtime(hour=20, minute=0),
-                              end_time=dtime(hour=23, minute=0),
+                              start_time=dtime(hour=17, minute=0),
+                              end_time=dtime(hour=20, minute=0),
                               days_of_week=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                               reminder_interval=3600,
                               timezone_name='America/Sao_Paulo')
