@@ -30,7 +30,7 @@ days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturda
 reminder_interval = 3600 # 1 hour
 
 async def sendMessages(message):
-    bot.send_message(chat_id=chat_id, text=message)
+    await bot.send_message(chat_id=chat_id, text=message)
 
 
 
