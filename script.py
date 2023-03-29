@@ -3,6 +3,8 @@ import pytz
 import telegram
 import time
 from datetime import datetime, timezone
+import asyncio
+
 
 
 # Initialize the Telegram bot using your bot token
@@ -27,6 +29,11 @@ days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturda
 # Define the interval between reminders in seconds
 reminder_interval = 3600 # 1 hour
 
+async def sendMessages(message):
+    bot.send_message(chat_id=chat_id, text=message)
+
+
+
 while True:
     # Get datetime now and subtract 11 hours to correct machine timezone
     # get pytz timezone Sao Paulo
@@ -42,7 +49,7 @@ while True:
         # If the user has not responded, send reminders every hour
         if user_responded == False:
             while start_time <= datetime.now(pytz.utc).time() <= end_time and user_responded == False:
-                bot.send_message(chat_id=chat_id, text=message)
+                asyncio.run(sendMessages(message))
                 now = datetime.now()
                 if now.time() >= end_time:
                     break
