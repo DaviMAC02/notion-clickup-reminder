@@ -13,8 +13,8 @@ class TelegramBot:
         self.bot = telegram.Bot(token=token)
         self.chat_id = chat_id
 
-    async def send_message(self, message: str):
-        await self.bot.send_message(chat_id=self.chat_id, text=message)
+    def send_message(self, message: str):
+        self.bot.send_message(chat_id=self.chat_id, text=message)
 
 
 class NotionReminder:
