@@ -2,7 +2,7 @@ import json
 import pytz
 import telegram
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 
 
 # Initialize the Telegram bot using your bot token
@@ -27,11 +27,10 @@ days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturda
 # Define the interval between reminders in seconds
 reminder_interval = 3600 # 1 hour
 
-
 while True:
     # Get datetime now and subtract 11 hours to correct machine timezone
     # get pytz timezone Sao Paulo
-    now = datetime.now(pytz.utc)
+    now = datetime.now(timezone.utc)
     print(f'Today is {now.strftime("%A")} and the time is {now.strftime("%H:%M")}, checking if it is time to send a reminder...') 
     # Check if it is a weekday and within the reminder period
     if now.strftime('%A') in days_of_week and start_time <= now.time() <= end_time:
