@@ -21,7 +21,7 @@ message = f"Olá {user_name}, passando para te lembrar de preencher o seu Notion
 
 # Define the start and end times of the reminder period
 start_time = datetime.strptime('20:00', '%H:%M').time()
-end_time = datetime.strptime('23:30', '%H:%M').time()
+end_time = datetime.strptime('23:00', '%H:%M').time()
 
 # Define the days of the week on which to send the reminder
 days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
