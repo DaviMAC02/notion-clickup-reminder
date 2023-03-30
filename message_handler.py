@@ -1,12 +1,16 @@
 import json
 import telegram
 from telegram.ext import Updater, MessageHandler, Filters
+import os
+import dotenv
+
+dotenv.load_dotenv()
 
 # Initialize the Telegram bot using your bot token
 bot = telegram.Bot(token='6297703034:AAHpAtl7LxrNZyBWHREoxVbTNkYyRdkXT7A')
 
 # Set the chat ID that the bot will listen to
-chat_id = '-846111004'
+chat_id = os.environ.get('CHAT_ID')
 
 affirmative_responses = ['yes', 'y', 'sim', 's', 'ok', 'okay', 'certo', 'claro', 'affirmative', 'affirmativo', 'positivo']
 

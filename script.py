@@ -1,11 +1,13 @@
 import json
 import pytz
 import telegram
-import time
 from datetime import datetime, timezone, time as dtime
 import asyncio
+import os
+import dotenv
+from typing import List
 
-from typing import List, Dict, Any, Union
+dotenv.load_dotenv()
 
 
 class TelegramBot:
@@ -55,7 +57,7 @@ class NotionReminder:
                 await asyncio.sleep((datetime.combine(now.date(), self.end_time) - now).seconds)
 
 async def main():
-    bot = TelegramBot(token='6297703034:AAHpAtl7LxrNZyBWHREoxVbTNkYyRdkXT7A', chat_id='-846111004')
+    bot = TelegramBot(os.environ.get('TELEGRAM_TOKEN'), os.environ.get('TELEGRAM_CHAT_ID'))
     reminder = NotionReminder(user_name='Davi',
                               start_time=dtime(hour=17, minute=0),
                               end_time=dtime(hour=20, minute=0),
